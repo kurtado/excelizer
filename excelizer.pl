@@ -34,7 +34,7 @@ my $csv = Text::CSV->new ( { binary => 1 } )
 # execute query
 $sth->execute or die "Couldn't execute query: " . $sth->errstr;
 
-# Print out the first row, which is a list of the columns in the select
+# Grab the first row as column headers
 my $mailstr = '';
 $mailstr = $csv->string($csv->combine(@{ $sth->{NAME_lc} })) . "\n";
 
